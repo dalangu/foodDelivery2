@@ -28,9 +28,9 @@ public class OrderStatusViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             orderStatus.setOrderId(ordered.getOrderId());
             orderStatus.setStatus(ordered.getStatus());
-            orderStatus.setCustomerOrderStatus(-);
-            orderStatus.setCookingStatus(-);
-            orderStatus.setDeliveryStatus(-);
+            orderStatus.setCustomerOrderStatus("-");
+            orderStatus.setCookingStatus("-");
+            orderStatus.setDeliveryStatus("-");
             orderStatus.setPayYn(false);
             // view 레파지 토리에 save
             orderStatusRepository.save(orderStatus);
