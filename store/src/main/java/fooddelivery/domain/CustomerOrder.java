@@ -53,50 +53,25 @@ public class CustomerOrder {
     }
 
     public static void pay(Ordered ordered) {
-        /** Example 1:  new item 
-        CustomerOrder customerOrder = new CustomerOrder();
-        repository().save(customerOrder);
-
-        Paied paied = new Paied(customerOrder);
-        paied.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(ordered.get???()).ifPresent(customerOrder->{
+      
+        repository().findByOrderId(ordered.getOrderId()).ifPresent(customerOrder->{
             
-            customerOrder // do something
+            customerOrder.setOrderId(ordered.getOrderId());
             repository().save(customerOrder);
-
-            Paied paied = new Paied(customerOrder);
-            paied.publishAfterCommit();
-
          });
-        */
+        
 
     }
 
     public static void cookingStart(OrderAccepted orderAccepted) {
-        /** Example 1:  new item 
-        CustomerOrder customerOrder = new CustomerOrder();
-        repository().save(customerOrder);
-
-        CookingStarted cookingStarted = new CookingStarted(customerOrder);
-        cookingStarted.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderAccepted.get???()).ifPresent(customerOrder->{
+      
+        repository().findByOrderId(orderAccepted.getOrderId()).ifPresent(customerOrder->{
             
-            customerOrder // do something
+            customerOrder.setStatus(orderAccepted.getStatus());
             repository().save(customerOrder);
-
-            CookingStarted cookingStarted = new CookingStarted(customerOrder);
-            cookingStarted.publishAfterCommit();
-
+            
          });
-        */
+        
 
     }
 }

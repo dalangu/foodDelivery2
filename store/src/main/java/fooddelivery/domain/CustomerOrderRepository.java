@@ -10,5 +10,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 )
 public interface CustomerOrderRepository
     extends PagingAndSortingRepository<CustomerOrder, Long> {
-    java.util.Optional<Delivery> findByOrderId(Long id);
+    java.util.Optional<CustomerOrder> findByOrderId(String id);
 }

@@ -41,26 +41,14 @@ public class Delivery {
     }
 
     public static void ridersPickDelivery(CookingCompleted cookingCompleted) {
-        /** Example 1:  new item 
-        Delivery delivery = new Delivery();
-        repository().save(delivery);
-
-        DeliveryPicked deliveryPicked = new DeliveryPicked(delivery);
-        deliveryPicked.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(cookingCompleted.get???()).ifPresent(delivery->{
+       
+        repository().findByOrderId(cookingCompleted.getOrderId()).ifPresent(delivery->{
             
-            delivery // do something
+            delivery.setOrderId(cookingCompleted.getOrderId()); // do something
             repository().save(delivery);
 
-            DeliveryPicked deliveryPicked = new DeliveryPicked(delivery);
-            deliveryPicked.publishAfterCommit();
-
          });
-        */
+       
 
     }
 }
