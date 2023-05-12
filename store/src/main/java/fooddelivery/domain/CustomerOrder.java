@@ -53,10 +53,12 @@ public class CustomerOrder {
     }
 
     public static void pay(Ordered ordered) {
-      
+
         repository().findByOrderId(ordered.getOrderId()).ifPresent(customerOrder->{
             
             customerOrder.setOrderId(ordered.getOrderId());
+            customerOrder.setOrderId(ordered.getStatus());
+            
             repository().save(customerOrder);
          });
         
@@ -67,7 +69,7 @@ public class CustomerOrder {
       
         repository().findByOrderId(orderAccepted.getOrderId()).ifPresent(customerOrder->{
             
-            customerOrder.setStatus(orderAccepted.getStatus());
+            customerOrder.setStatus("COOKINGSTART");
             repository().save(customerOrder);
             
          });
